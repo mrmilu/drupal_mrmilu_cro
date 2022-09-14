@@ -1,0 +1,7 @@
+<?php
+
+use Drupal\mrmilu_cro\Helper\CROHelper;
+
+function mrmilu_cro_preprocess_html(array &$variables) {
+  $variables['cro'] = CROHelper::getCookieContext();
+}

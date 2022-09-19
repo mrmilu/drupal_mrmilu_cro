@@ -1,7 +1,9 @@
 <?php
 
+use Drupal\Core\Site\Settings;
 use Drupal\mrmilu_cro\Helper\CROHelper;
 
 function mrmilu_cro_preprocess_html(array &$variables) {
+  $variables['cro_enabled'] = Settings::get('CRO_ENABLED');
   $variables['cro'] = CROHelper::getCookieContext();
 }

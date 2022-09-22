@@ -17,7 +17,7 @@ class MiddlewareService implements HttpKernelInterface {
   public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE) {
     $cro_helper = new CROHelper();
     if ($cro_helper->isEnabled()) {
-      if (!$cro_helper->hasSessionCookie()) {
+      if (!$cro_helper->hasSessionCookie($request)) {
         $cro_helper->setSessionCookie();
       }
     }

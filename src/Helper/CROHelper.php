@@ -26,12 +26,13 @@ class CROHelper {
     return $this->enabled;
   }
 
-  public function hasSessionCookie() {
-    return $this->getSessionCookie() !== NULL;
+  public function hasSessionCookie($request) {
+    return $this->getSessionCookie($request) !== NULL;
   }
 
-  public static function getSessionCookie() {
-    return \Drupal::request()->cookies->get(Settings::get('CRO_EXPERIMENT_COOKIE_NAME'));
+  public static function getSessionCookie($request = NULL) {
+    if ($request == NULL) $request = \Drupal::request();
+    return $request->cookies->get(Settings::get('CRO_EXPERIMENT_COOKIE_NAME'));
   }
 
   public function setSessionCookie() {

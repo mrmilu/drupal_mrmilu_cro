@@ -2,7 +2,7 @@ services:
   mrmilu_cro.middleware_service:
     class: Drupal\mrmilu_cro\Service\MiddlewareService
     tags:
-      - { name: http_middleware, priority: 10 }
+      - { name: http_middleware, priority: 210 }
 
   cache_context.mrmilu_cro:
     class: Drupal\mrmilu_cro\Cache\Context\MrMiluCROCacheContext
